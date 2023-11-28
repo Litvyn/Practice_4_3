@@ -19,9 +19,13 @@ public class EmployeeRepository {
     }
 
     public String[] getNameAndSurnameOfTop3BySalary() {
-        List<Employee> sortedBySalary = employees.stream()
-                .sorted(Comparator.comparingInt(Employee::getSalary).reversed())
-                .limit(3).toList();
+        return employees.stream()
+            .sorted(Comparator.comparingInt(Employee::getSalary).reversed())
+            .limit(3)
+            .map(employee -> employee.getName() + " " + employee.getLastName() +
+                    " - Salary: " + employee.getSalary())
+            .toArray(String[]::new);
+}
 
         String[] topThreeSalariesAndNames = new String[sortedBySalary.size()];
         for (int i = 0; i < sortedBySalary.size(); i++) {
