@@ -27,13 +27,7 @@ public class EmployeeRepository {
             .toArray(String[]::new);
 }
 
-        String[] topThreeSalariesAndNames = new String[sortedBySalary.size()];
-        for (int i = 0; i < sortedBySalary.size(); i++) {
-            Employee employee = sortedBySalary.get(i);
-            topThreeSalariesAndNames[i] = employee.getName() + " " + employee.getLastName() +
-                    " - Salary: " + employee.getSalary();
-        }
-        return topThreeSalariesAndNames;
+      
     }
     //загальна зарплата жінок в QA
     public int getSalaryByHugeCriteriaList() {
